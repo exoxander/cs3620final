@@ -1,0 +1,11 @@
+{% extends "pages/navwrapper.html" %}
+<!-- Navbar -->
+{% block body %}
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Login</button>
+    </form>
+</div>
+{% endblock %}
