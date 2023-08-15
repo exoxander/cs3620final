@@ -11,6 +11,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", pageviews.home, name="home"),
     path("register", userviews.register, name="register"),
-    path("login", authviews.LoginView.as_view(template_name="users/login.html"), name="login"),
+    path("login", userviews.user_login, name="login"),
     path("logout", authviews.LogoutView.as_view(template_name="users/logout.html"), name="logout"),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

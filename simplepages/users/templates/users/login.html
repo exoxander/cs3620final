@@ -1,11 +1,24 @@
 {% extends "pages/navwrapper.html" %}
 <!-- Navbar -->
+<!-- https://docs.djangoproject.com/en/3.0/topics/auth/default/#django.contrib.auth.forms.AuthenticationForm -->
 {% block body %}
 <div class="container">
-    <form method="post">
+    <form method="post" class="form">
         {% csrf_token %}
-        {{ form }}
-        <button type="submit">Login</button>
+        <div class="row mt-2 form-group">
+            <div class="col-3"></div>
+            <h3 class="col-2">Username</h3>
+            <input class="col-4" type="text" name="username" id="username"/>
+        </div>
+        <div class="row mt-2 form-group">
+            <div class="col-3"></div>
+            <h3 class="col-2">Password</h3>
+            <input class="col-4" type="text" name="password" id="password" />
+        </div>
+        <div class="row">
+            <div class="col-5"></div>
+            <button type="submit" class="btn btn-outline-success col-1 mt-2">Login</button>
+        </div>
     </form>
 </div>
 {% endblock %}
