@@ -1,18 +1,20 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
+from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User
 
 from django.shortcuts import render, redirect
-from .forms import RegistrationForm
+from .forms import user_registration_form
 
 def user_register(request):
-    if(request.method == "POST"):  
-        form = RegistrationForm(request.POST)
+    if(request.method == "POST"):
+        form = user_registration_form(request.POST)
+
         if form.is_valid():
-            form.save()
             return redirect("login")
     else:
-        form = RegistrationForm()
+        form = user_registration_form()
     return render(request, "users/register.html",{"form":form})
 
 def user_login(request):

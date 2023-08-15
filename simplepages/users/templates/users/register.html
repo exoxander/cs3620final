@@ -1,11 +1,38 @@
 {% extends "pages/navwrapper.html" %}
 <!-- Navbar -->
 {% block body %}
-<div class="container">
-    <form method="POST">
+
+<div class="container mt-3">
+    <form method="post" class="form">
         {% csrf_token %}
-        {{ form }}
-        <button type="submit">Create</button>
+        <div class="row mt-2 form-group">
+            <div class="col-2"></div>
+            <h3 class="col-3">{{form.name.label_tag}}</h3>
+            <div class="col-5">
+                {{form.name}} {{form.name.errors}}
+            </div>
+        </div>
+
+        <div class="row mt-2 form-group">
+            <div class="col-2"></div>
+            <h3 class="col-3">{{form.pwd1.label_tag}}</h3>
+            <div class="col-5">
+                {{form.pwd1}} {{form.pwd1.errors}}
+            </div>
+        </div>
+
+        <div class="row mt-2 form-group">
+            <div class="col-2"></div>
+            <h3 class="col-3">{{form.pwd2.label_tag}}</h3>
+            <div class="col-5">
+                {{form.pwd2}} {{form.pwd2.errors}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-5"></div>
+            <button type="submit" class="btn btn-outline-success col-1 mt-2">Create</button>
+        </div>
     </form>
 </div>
 {% endblock %}

@@ -12,6 +12,6 @@ urlpatterns = [
     path("", pageviews.home, name="home"),
     path("register", userviews.user_register, name="register"),
     path("login", userviews.user_login, name="login"),
-    path("logout", authviews.LogoutView.as_view(template_name="users/logout.html"), name="logout"),
+    path("logout", userviews.user_register, name="logout"),
     path("p", pageviews.page_profile,name="profile")
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
