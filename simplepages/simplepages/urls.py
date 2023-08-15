@@ -13,5 +13,5 @@ urlpatterns = [
     path("register", userviews.user_register, name="register"),
     path("login", userviews.user_login, name="login"),
     path("logout", userviews.user_register, name="logout"),
-    path("p", pageviews.page_profile,name="profile")
+    path("p/<int:profile_id>", pageviews.page_profile,name="profile")
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

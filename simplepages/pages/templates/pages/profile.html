@@ -7,11 +7,12 @@
     <div class="rounded-bottom-4 p-4 bg-dark text-light">
         <div class="row">
             <div class="col-2">
-                <img class="rounded-3" style="width:120px; height:120px" src="{{MEDIA_URL}}/NotFound.jpg" />
+                <img class="rounded-3" style="width:120px; height:120px" src="{{MEDIA_URL}}{{profile_page.image}}" />
             </div>
             <div class="col-3">
-                <h4>firstname</h4>
-                <h4>lastname</h4>
+                <h3>{{profile_user.username}}</h3>
+                <h4>{{profile_user.first_name}}</h4>
+                <h4>{{profile_user.last_name}}</h4>
             </div>
             <div class="col-7">
                 <p>
@@ -23,34 +24,30 @@
     <div class="d-flex flex-wrap justify-content-around p-5">
 
         <!-- CREATECARD -->
-        <div class="border border-3 border-dark rounded-3 m-2 bg-dark" style="width:180px; height:300px">
-            <a href="#" class="h-100 w-100" style="text-decoration:none">
-                <div class="h-50">
-                    <img class="h-100 w-100 rounded-top" src="{{MEDIA_URL}}/NotFound.jpg" />
-                </div>
-                <div class="p-1">
-                    <h2 class="text-info">+CREATE</h2>
-                </div>
-            </a>
-        </div>
+        <a href="#" class="border border-3 border-dark rounded-3 m-2 bg-dark shadow-lg" style="width:180px; height:300px; overflow:clip; text-decoration:none">
+            <div class="h-50">
+                <img class="h-100 w-100 rounded-top" src="{{MEDIA_URL}}/NotFound.jpg" />
+            </div>
+            <div class="p-1">
+                <h2 class="text-info">+CREATE</h2>
+            </div>
+        </a>
         <!-- /CREATECARD -->
-        {%for i in "0123456789abcdef"|make_list%}
+        {%for post in page_posts%}
         <!-- CARD -->
-        <div class="border border-3 border-dark rounded-3 m-2 bg-dark" style="width:180px; height:300px; overflow:clip">
-            <a href="#" class="h-100 w-100" style="text-decoration:none">
-                <div class="h-50">
-                    <img class="h-100 w-100 rounded-top" src="{{MEDIA_URL}}/NotFound.jpg" />
-                </div>
-                <div class="p-2">
-                    <h4 class="text-info">
-                        Title words
-                    </h4>
-                    <p class="text-light">
-                        aolsdjhfaisjdf aisbdfi  aisdf basidfbiasdubf iasudif baksdbfi ahbifagsdifgi absdif abvisdfiabs iabsdi faiusdfuasbdf aln asdfasd oaiusdhf9asdf aisdf aisdhfi8asd aisdf
-                    </p>
-                </div>
-            </a>
-        </div>
+        <a href="#" class="border border-3 border-dark rounded-3 m-2 bg-dark shadow-lg" style="width:180px; height:300px; overflow:clip; text-decoration:none">
+            <div class="h-50">
+                <img class="h-100 w-100 rounded-top" src="{{MEDIA_URL}}{{post.image}}" />
+            </div>
+            <div class="p-2">
+                <h4 class="text-info">
+                    {{post.postname}}
+                </h4>
+                <p class="text-light">
+                    {{post.postdescription}}
+                </p>
+            </div>
+        </a>
         <!-- /CARD -->
         {%endfor%}
     </div>

@@ -9,7 +9,12 @@
             <div class="col-2"></div>
             <h3 class="col-3">{{form.name.label_tag}}</h3>
             <div class="col-5">
-                {{form.name}} {{form.name.errors}}
+                <div>
+                    {{form.name}}
+                </div>
+                <div class="text-warning">
+                    {{form.name.errors}}
+                </div>
             </div>
         </div>
 
@@ -17,7 +22,12 @@
             <div class="col-2"></div>
             <h3 class="col-3">{{form.pwd1.label_tag}}</h3>
             <div class="col-5">
-                {{form.pwd1}} {{form.pwd1.errors}}
+                <div>
+                    {{form.pwd1}}
+                </div>
+                <div class="text-warning">
+                    {{form.pwd1.errors}}
+                </div>
             </div>
         </div>
 
@@ -25,7 +35,12 @@
             <div class="col-2"></div>
             <h3 class="col-3">{{form.pwd2.label_tag}}</h3>
             <div class="col-5">
-                {{form.pwd2}} {{form.pwd2.errors}}
+                <div>
+                    {{form.pwd2}}
+                </div>
+                <div class="text-warning">
+                    {{form.pwd2.errors}}
+                </div>
             </div>
         </div>
 

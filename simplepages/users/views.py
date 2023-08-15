@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
-from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
+from pages.models import Profile
 
 from django.shortcuts import render, redirect
 from .forms import user_registration_form
@@ -12,6 +12,11 @@ def user_register(request):
         form = user_registration_form(request.POST)
 
         if form.is_valid():
+            #create user
+            newuser = User.objects.create_user(form.cleaned_data["name"], email=None, password=form.cleaned_data["pwd1"])
+            #create profile
+            newProfile = Profile.objects.create(user = newuser)
+
             return redirect("login")
     else:
         form = user_registration_form()
