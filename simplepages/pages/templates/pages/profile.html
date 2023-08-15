@@ -16,15 +16,16 @@
             </div>
             <div class="col-7">
                 <p>
-                    ABOUT MEOASID ASOSDFOSDNF OSDNFJSDENF OSDNF
+                    {{profile_page.aboutme}}
                 </p>
             </div>
         </div>
     </div>
     <div class="d-flex flex-wrap justify-content-around p-5">
 
+        {%if profile_user.id == user.id%}
         <!-- CREATECARD -->
-        <a href="#" class="border border-3 border-dark rounded-3 m-2 bg-dark shadow-lg" style="width:180px; height:300px; overflow:clip; text-decoration:none">
+        <a href="{% url 'postupsert' %}" class="border border-3 border-dark rounded-3 m-2 bg-dark shadow-lg" style="width:180px; height:300px; overflow:clip; text-decoration:none">
             <div class="h-50">
                 <img class="h-100 w-100 rounded-top" src="{{MEDIA_URL}}NotFound.jpg" />
             </div>
@@ -33,6 +34,8 @@
             </div>
         </a>
         <!-- /CREATECARD -->
+        {%endif%}
+
         {%for post in profile_posts%}
         <!-- CARD -->
         <a href="#" class="border border-3 border-dark rounded-3 m-2 bg-dark shadow-lg" style="width:180px; height:300px; overflow:clip; text-decoration:none">
