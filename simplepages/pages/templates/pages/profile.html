@@ -7,7 +7,7 @@
     <div class="rounded-bottom-4 p-4 bg-dark text-light">
         <div class="row">
             <div class="col-2">
-                <img class="rounded-3" style="width:120px; height:120px" src="{{MEDIA_URL}}{{profile_page.image}}" />
+                <img class="rounded-3" style="width:120px; height:120px" src="{{MEDIA_URL}}{{profile_page.profileimage}}" />
             </div>
             <div class="col-3">
                 <h3>{{profile_user.username}}</h3>
@@ -26,18 +26,18 @@
         <!-- CREATECARD -->
         <a href="#" class="border border-3 border-dark rounded-3 m-2 bg-dark shadow-lg" style="width:180px; height:300px; overflow:clip; text-decoration:none">
             <div class="h-50">
-                <img class="h-100 w-100 rounded-top" src="{{MEDIA_URL}}/NotFound.jpg" />
+                <img class="h-100 w-100 rounded-top" src="{{MEDIA_URL}}NotFound.jpg" />
             </div>
             <div class="p-1">
                 <h2 class="text-info">+CREATE</h2>
             </div>
         </a>
         <!-- /CREATECARD -->
-        {%for post in page_posts%}
+        {%for post in profile_posts%}
         <!-- CARD -->
         <a href="#" class="border border-3 border-dark rounded-3 m-2 bg-dark shadow-lg" style="width:180px; height:300px; overflow:clip; text-decoration:none">
             <div class="h-50">
-                <img class="h-100 w-100 rounded-top" src="{{MEDIA_URL}}{{post.image}}" />
+                <img class="h-100 w-100 rounded-top" src="{{MEDIA_URL}}{{post.postimage}}" />
             </div>
             <div class="p-2">
                 <h4 class="text-info">

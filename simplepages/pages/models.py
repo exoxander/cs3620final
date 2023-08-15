@@ -16,6 +16,9 @@ class Post(models.Model):
 
     postimage = models.ImageField(upload_to="postimages", default="NotFound.jpg")
 
+    def __str__(self):
+        return self.postname
+
 
 class comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)

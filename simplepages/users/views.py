@@ -15,7 +15,9 @@ def user_register(request):
             #create user
             newuser = User.objects.create_user(form.cleaned_data["name"], email=None, password=form.cleaned_data["pwd1"])
             #create profile
-            newProfile = Profile.objects.create(user = newuser)
+            new_profile = Profile.objects.create(user = newuser)
+            new_profile.profileimage = "NotFound.jpg"
+            new_profile.save()
 
             return redirect("login")
     else:
