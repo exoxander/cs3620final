@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
+from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from pages.models import Profile
 
@@ -38,3 +39,7 @@ def user_login(request):
             return redirect("home")
 
     return render(request, "users/login.html")
+
+def user_logout(request):
+    logout(request)
+    return redirect("home")

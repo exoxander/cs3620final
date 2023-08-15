@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Profile, Post
 from django.contrib.auth.models import User
 
@@ -18,3 +18,11 @@ def page_profile(request, profile_id):
         return render(request,"pages/profile.html",context)
 
     return render(request,"pages/home.html",{})
+
+def profile_redirect(request):
+    p = Profile.objects.get(user=request.user.id).id
+    
+    if(p != None):
+        return redirect("profile",profile_id=p)
+
+    return redirect("home")
