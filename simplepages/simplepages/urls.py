@@ -15,4 +15,5 @@ urlpatterns = [
     path("logout", userviews.user_logout, name="logout"),
     path("p/<int:profile_id>", pageviews.page_profile,name="profile"),
     path("profileredirect", pageviews.profile_redirect,name="profileredirect"),
+    path("postupsert", pageviews.post_upsert,name="postupsert"),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

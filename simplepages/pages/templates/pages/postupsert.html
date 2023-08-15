@@ -1,0 +1,33 @@
+{% extends "pages/navwrapper.html" %}
+<!-- Navbar -->
+{% block body %}
+<div class="container">
+    <h1>
+        POST
+    </h1>
+    <form method="post" class="form">
+        {% csrf_token %}
+        <div class="row mt-2 form-group">
+            <div class="col-2"></div>
+            <h3 class="col-3">Post Name</h3>
+            <div class="col-5">
+                <input type="text" name="post_name" id="post_name" />
+            </div>
+        </div>
+        <div class="row mt-2 form-group">
+            <div class="col-2"></div>
+            <h3 class="col-3">Post Name</h3>
+            <div class="col-5">
+                <textarea name="post_description" id="post_description">
+
+                </textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-5"></div>
+            <button type="submit" class="btn btn-outline-success col-1 mt-2">Create</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -19,6 +19,21 @@ def page_profile(request, profile_id):
 
     return render(request,"pages/home.html",{})
 
+def post_upsert(request):
+    if(request.method == "POST"):
+        pst_name = request.POST["post_name"]
+        pst_description = request.POST["post_description"]
+        #p_image = request.POST["post_description"]
+
+        pfl = Profile.objects.get(user=request.user.id)
+
+        #create new post
+        Post.objects.create(profile=pfl,postname=pst_name,postdescription=pst_description)
+
+        return redirect("profileredirect")
+
+    return render(request,"pages/postupsert.html")
+
 def profile_redirect(request):
     p = Profile.objects.get(user=request.user.id).id
     
