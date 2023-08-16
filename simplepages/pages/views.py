@@ -41,3 +41,15 @@ def profile_redirect(request):
         return redirect("profile",profile_id=p)
 
     return redirect("home")
+
+
+def search(request):
+
+    profile_list = Profile.objects.all()
+    post_list = Post.objects.all()
+    return render(request, "pages/search.html",{"profile_list":profile_list,"post_list":post_list})
+
+def post_details(request, post_id):
+    selected_post = Post.objects.get(pk=post_id)
+
+    return render(request,"pages/postdetails.html",{"post":selected_post})

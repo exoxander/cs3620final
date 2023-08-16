@@ -1,0 +1,37 @@
+{% extends "pages/navwrapper.html" %}
+<!-- Navbar -->
+{% block body %}
+<div class="container">
+    <div class="rounded-bottom-4 p-4 bg-dark text-light">
+        <form method="post" class="form">
+            <div class="row">
+                <div class="col-1">
+                    <button type="submit" class="btn btn-outline-success">Search</button>
+                </div>
+                <div class="col-5">
+                    <input type="text" name="search" id="search" />
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-6 d-flex flex-column">
+            {%for profile in profile_list%}
+            <a href="{% url 'profile' profile_id=profile.id%}" style="overflow:clip; text-decoration:none" class="mt-2 p-1 bg-dark text-light rounded">
+                <img style="max-width:50px;max-height:50px;" class="rounded" src="{{MEDIA_URL}}{{profile.profileimage}}" />
+                {{profile.user}}
+            </a>
+            {%endfor%}
+        </div>
+        <div class="col-6 d-flex flex-column">
+            {%for post in post_list%}
+            <a href="{% url 'post' post_id=post.id%}" style="overflow:clip; text-decoration:none" class="mt-2 p-1 bg-dark text-light rounded">
+                <img style="max-width:50px;max-height:50px;" class="rounded" src="{{MEDIA_URL}}{{post.postimage}}" />
+                {{post.postname}}
+            </a>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+{% endblock %}
