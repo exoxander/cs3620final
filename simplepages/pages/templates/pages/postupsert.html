@@ -9,24 +9,48 @@
 
     <form method="post" enctype="multipart/form-data" class="form">
         {% csrf_token %}
+        <input type="hidden" name="profile" value="{{profileid}}" required="" id="id_profile">
 
         <div class="row mt-2 form-group">
             <div class="col-2"></div>
-            <h3 class="col-3">{{form.name.label_tag}}</h3>
+            <h3 class="col-3">{{form.postname.label_tag}}</h3>
             <div class="col-5">
                 <div>
-                    {{form.name}}
+                    {{form.postname}}
                 </div>
                 <div class="text-warning">
-                    {{form.name.errors}}
+                    {{form.postname.errors}}
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-2 form-group">
+            <div class="col-2"></div>
+            <h3 class="col-3">{{form.postdescription.label_tag}}</h3>
+            <div class="col-5">
+                <div>
+                    {{form.postdescription}}
+                </div>
+                <div class="text-warning">
+                    {{form.postdescription.errors}}
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-2 form-group">
+            <div class="col-2"></div>
+            <h3 class="col-3">{{form.postimage.label_tag}}</h3>
+            <div class="col-5">
+                <div>
+                    {{form.postimage}}
+                </div>
+                <div class="text-warning">
+                    {{form.postimage.errors}}
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-5">
-                {{form}}
-            </div>
             <button type="submit" class="btn btn-outline-success col-1 mt-2">Create</button>
         </div>
     </form>

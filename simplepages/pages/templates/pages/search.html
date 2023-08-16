@@ -18,6 +18,7 @@
 
     <div class="row mt-5">
         <div class="col-6 d-flex flex-column">
+            <h3>Users</h3>
             {%for profile in profile_list%}
             <a href="{% url 'profile' profile_id=profile.id%}" style="overflow:clip; text-decoration:none" class="mt-2 p-1 bg-dark text-light rounded-3">
                 <img style="max-width:50px;max-height:50px;" class="rounded" src="{{MEDIA_URL}}{{profile.profileimage}}" />
@@ -26,6 +27,7 @@
             {%endfor%}
         </div>
         <div class="col-6 d-flex flex-column">
+            <h3>Posts</h3>
             {%for post in post_list%}
             <a href="{% url 'post' post_id=post.id%}" style="overflow:clip; text-decoration:none" class="mt-2 p-1 bg-dark text-light rounded-3">
                 <img style="max-width:50px;max-height:50px;" class="rounded" src="{{MEDIA_URL}}{{post.postimage}}" />

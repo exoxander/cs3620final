@@ -20,18 +20,18 @@ def page_profile(request, profile_id):
 
     return render(request,"pages/home.html",{})
 
-def post_upsert(request):  
+def post_upsert(request):
 
+    
     if(request.method == "POST"):
-        form = post_upsert_form(request.POST,request.FILES)
+        form = post_upsert_form(request.POST, request.FILES)
         if(form.is_valid()):
             form.save()
-
-        return redirect("profileredirect")
+            return redirect("profileredirect")
 
     form = post_upsert_form()
-
-    return render(request,"pages/postupsert.html",{"form":form})
+    profileid = Profile.objects.get(user=request.user.id).id
+    return render(request,"pages/postupsert.html",{"form":form,"profileid":profileid})
 
 def profile_redirect(request):
     p = Profile.objects.get(user=request.user.id).id
