@@ -50,14 +50,16 @@ def search_profile_filter(request, filter):
 
 def search(request):
 
+    searchvalue = "Search"
     profile_list = Profile.objects.all()
     post_list = Post.objects.all()
 
     if(request.method == "POST"):
         profile_list = search_profile_filter(request,request.POST["search"])
         post_list = search_post_filter(request,request.POST["search"])
+        searchvalue = request.POST["search"]
 
-    return render(request, "pages/search.html",{"profile_list":profile_list,"post_list":post_list})
+    return render(request, "pages/search.html",{"profile_list":profile_list,"post_list":post_list,"searchvalue":searchvalue})
 
 def post_details(request, post_id):
     selected_post = Post.objects.get(pk=post_id)
