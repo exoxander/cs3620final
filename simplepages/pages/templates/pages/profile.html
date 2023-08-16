@@ -38,7 +38,7 @@
 
         {%for post in profile_posts%}
         <!-- CARD -->
-        <a href="#" class="border border-3 border-dark rounded-3 m-2 bg-dark shadow-lg" style="width:180px; height:300px; overflow:clip; text-decoration:none">
+        <a href="{% url 'post' post_id=post.id%}" class="border border-3 border-dark rounded-3 m-2 bg-dark shadow-lg" style="width:180px; height:300px; overflow:clip; text-decoration:none">
             <div class="h-50">
                 <img class="h-100 w-100 rounded-top" src="{{MEDIA_URL}}{{post.postimage}}" />
             </div>

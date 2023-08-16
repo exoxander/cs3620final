@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from .models import Profile, Post
-from .forms import post_create_form
 from .forms import post_upsert_form
 from django.contrib.auth.models import User
 
@@ -42,11 +41,22 @@ def profile_redirect(request):
 
     return redirect("home")
 
+def search_post_filter(request, filter):
+    return Post.objects.filter(postname__contains=filter)
+
+def search_profile_filter(request, filter):
+
+    return Profile.objects.filter(user__username__contains=filter)
 
 def search(request):
 
     profile_list = Profile.objects.all()
     post_list = Post.objects.all()
+
+    if(request.method == "POST"):
+        profile_list = search_profile_filter(request,request.POST["search"])
+        post_list = search_post_filter(request,request.POST["search"])
+
     return render(request, "pages/search.html",{"profile_list":profile_list,"post_list":post_list})
 
 def post_details(request, post_id):

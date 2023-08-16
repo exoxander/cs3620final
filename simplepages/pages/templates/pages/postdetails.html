@@ -3,7 +3,21 @@
 {% block body %}
 <div class="container">
     <div class="rounded-bottom-4 p-4 bg-dark text-light">
-        {{post.postname}}
+        <h2 class="text-center rounded bg-light text-dark p-2">{{post.postname}}</h2>
+        <div class="row">
+            <div class="col-6">
+                <img style="max-width:500px;max-height:500px;" class="rounded-3" src="{{MEDIA_URL}}{{post.postimage}}" />
+            </div>
+            <div class="col-4">
+                {{post.postdescription}}
+            </div>
+            <div class="col-2">
+                <a href="{% url 'profile' profile_id=post.profile.id%}" style="overflow:clip; text-decoration:none" class="mt-2 p-1 rounded bg-light text-dark p-3">
+                    <img style="max-width:50px;max-height:50px;" class="rounded" src="{{MEDIA_URL}}{{post.profile.profileimage}}" />
+                    {{post.profile.user}}
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
