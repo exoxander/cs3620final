@@ -4,6 +4,7 @@ from .models import Profile, Post
 from .forms import *
 from random import randint
 from django.contrib.auth.models import User
+from django.http import HttpResponse
 
 # Create your views here.
 def home(request):
@@ -98,15 +99,21 @@ def user_update(request):
     return render(request,"pages/userupdate.html",{"form":form})
 
 
-def profile_update(request):
-    
+def profile_update(request):   
+    p = Profile.objects.get(user=request.user.id)
+
     if(request.method == "POST"):
         form = profile_update_form(request.POST, request.FILES)
         if(form.is_valid()):
-            form.save()
-            return redirect("profileredirect")
+            p.aboutme = form.data["aboutme"]
+            p.profileimage = request.POST.get("profileimage")
+            p.save()
+        else:
+            return HttpResponse(form.errors.values())
 
-    p = Profile.objects.get(user=request.user.id)
+        
+        return redirect("profileredirect")
+    
     form = profile_update_form(instance=p)
     return render(request,"pages/profileupdate.html",{"form":form})
 

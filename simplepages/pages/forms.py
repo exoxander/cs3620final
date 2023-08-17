@@ -11,7 +11,7 @@ class post_upsert_form(forms.ModelForm):
 class profile_update_form(forms.ModelForm):
     class Meta:
         model = Profile
-        fields=["aboutme","profileimage","user","id"]
+        fields=["aboutme","profileimage"]
 
 class user_update_form(UserChangeForm):
     class Meta:

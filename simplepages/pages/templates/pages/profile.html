@@ -10,17 +10,24 @@
                 <img class="rounded-3" style="max-width:120px; max-height:120px" src="{{MEDIA_URL}}{{profile_page.profileimage}}" />
             </div>
             <div class="col-3">
-                <h3>{{profile_user.username}}</h3>
-                <h4>{{profile_user.first_name}}</h4>
-                <h4>{{profile_user.last_name}}</h4>
+                <h3>Username: {{profile_user.username}}</h3>
+                <h4>First name: {{profile_user.first_name}}</h4>
+                <h4>Last name: {{profile_user.last_name}}</h4>
             </div>
-            <div class="col-7">
+            <div class="col-5">
                 <p>
                     {{profile_page.aboutme}}
                 </p>
             </div>
+            {%if profile_user.id == user.id%}
+            <div class="col-2">
+                <a href="{% url 'userupdate' %}" class="btn btn-outline-info mt-2">Update User Info</a>
+                <a href="{% url 'profileupdate' %}" class="btn btn-outline-info mt-2">Update Profile Info</a>
+            </div>
+            {%endif%}
         </div>
     </div>
+
     <div class="d-flex flex-wrap justify-content-around p-5">
 
         {%if profile_user.id == user.id%}
