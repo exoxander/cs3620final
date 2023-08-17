@@ -16,6 +16,9 @@ urlpatterns = [
     path("p/<int:profile_id>", pageviews.page_profile,name="profile"),
     path("profileredirect", pageviews.profile_redirect,name="profileredirect"),
     path("postupsert", pageviews.post_upsert,name="postupsert"),
+    path("userupdate", pageviews.user_update,name="userupdate"),
+    path("profileupdate", pageviews.profile_update,name="profileupdate"),
     path("search", pageviews.search,name="search"),
     path("post/<int:post_id>", pageviews.post_details,name="post"),
+
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,10 +1,22 @@
 from django import forms
-from .models import Post
+from .models import Post, Profile
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserChangeForm
 
 class post_upsert_form(forms.ModelForm):
     class Meta:
         model = Post
         fields = ["profile","postname","postdescription","postimage"]
+
+class profile_update_form(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields=["aboutme","profileimage","user","id"]
+
+class user_update_form(UserChangeForm):
+    class Meta:
+        model = User
+        fields = ["first_name","last_name"]
 
 class post_create_form(forms.Form):
     name = forms.CharField(label="Title",max_length=100)

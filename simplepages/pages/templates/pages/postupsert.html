@@ -9,8 +9,6 @@
 
     <form method="post" enctype="multipart/form-data" class="form">
         {% csrf_token %}
-        <input type="hidden" name="profile" value="{{profileid}}" required="" id="id_profile">
-
         <div class="row mt-2 form-group">
             <div class="col-2"></div>
             <h3 class="col-3">{{form.postname.label_tag}}</h3>

@@ -3,8 +3,22 @@
 
 {% block body %}
 <div class="container">
-   <h1>
-       alsdhfaksjbdf
-   </h1>
+    <h1>
+        Highlighted users
+    </h1>
+
+    <div class="row">
+        {%for profile in profile_list%}
+        <div class="mt-2 p-1  text-light col-4">
+            <div class="d-flex justify-content-center">
+                <a  href="{% url 'profile' profile_id=profile.id%}" style="overflow:clip; text-decoration:none"  class="d-flex text-light flex-column text-center bg-dark p-2 rounded-3">
+                    <img style="width:100px;height:100px;" class="rounded" src="{{MEDIA_URL}}{{profile.profileimage}}" />
+                    {{profile.user}}
+                </a>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+
 </div>
 {% endblock %}

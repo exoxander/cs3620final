@@ -1,0 +1,33 @@
+{% extends "pages/navwrapper.html" %}
+<!-- Navbar -->
+{% block body %}
+<div class="container">
+    <form method="post" enctype="multipart/form-data" class="form">
+        {% csrf_token %}
+
+        <div class="row mt-2 form-group">
+            <div class="col-2"></div>
+            <h3 class="col-3">First Name</h3>
+            <div class="col-5">
+                <div>
+                    <input type="text" name="first_name" id="first_name" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-2 form-group">
+            <div class="col-2"></div>
+            <h3 class="col-3">Last Name</h3>
+            <div class="col-5">
+                <div>
+                    <input type="text" name="last_name" id="last_name" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <button type="submit" class="btn btn-outline-success col-1 mt-2">Update</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
